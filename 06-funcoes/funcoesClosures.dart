@@ -33,27 +33,48 @@ funcaoClosures() {
   print(descontarDez(100));
   print(descontarVinte(100));
 
+  print('\n06.5.1) Closures com Objectos\n');
 
-   print('\n06.5.1) Closures com Objectos\n');
-   
-   var novoObjecto = () {
+  var novoObjecto = () {
     var id = 0;
-    var objectoCriado = (String nome, descricao){
-      return 'id: ${(++id).toString().padLeft(2, '0')} nome, $nome:, descricao: $descricao';
+    var objectoCriado = (String nome, descricao) {
+      //return 'id: ${(++id).toString().padLeft(2, '0')} nome:, $nome, descricao: $descricao';
+      //return {'id': (++id).toString().padLeft(2, '0'), 'nome': nome, 'descricao': descricao};
+      return Objeto.fromMap({'id': (++id).toString().padLeft(2, '0'), 'nome': nome, 'descricao': descricao});
     };
     return objectoCriado;
-   };
+  };
 
-   var objecto = novoObjecto();
-   print(objecto);
+  var objecto = novoObjecto();
+  print(objecto);
 
-   var listaObjectos = [objecto('Higino', 1.72)];
-       listaObjectos.add(objecto('Iphome', 3000.00));
-       listaObjectos.add(objecto('Macboock', 2000.00));
+  var listaObjectos = [objecto('Higino', 1.72)];
+  listaObjectos.add(objecto('Iphome', 3000.00));
+  listaObjectos.add(objecto('Macboock', 2000.00));
 
-   for (var objecto in listaObjectos) {
-      print(objecto);
-   }
+  for (var objecto in listaObjectos) {
+    //print(objecto.substring(2));
+    //print(objecto.map((c, v) => MapEntry(c, (v is double) ? '${descontarDez(v)}' : v)));
+    print((objecto.descricao is num) ? descontarVinte(objecto.descricao) : objecto.descricao);
+  }
+}
+
+class Objeto {
+  String? id, nome;
+  dynamic descricao;
+  Objeto({
+    this.id,
+    this.nome,
+    this.descricao,
+  });
+
+  factory Objeto.fromMap(Map<String, dynamic> map) {
+    return Objeto(
+      id: map['id'].toString(),
+      nome: map['nome'],
+      descricao: map['descricao'],
+    );
+  }
 }
 
 void main() {
