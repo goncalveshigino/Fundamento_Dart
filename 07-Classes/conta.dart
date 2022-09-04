@@ -1,6 +1,7 @@
 import 'dart:math';
 
 class Conta {
+  
   String nome = 'Higino';
   int numeroConta = new Random().nextInt(10000 + 1);
   double saldo = 0;

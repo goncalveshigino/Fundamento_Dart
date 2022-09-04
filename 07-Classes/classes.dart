@@ -1,5 +1,3 @@
-
-
 import 'conta.dart';
 import 'pessoa.dart';
 import 'usuario.dart';
@@ -23,6 +21,13 @@ void main() {
 
   print('Nome: ${pessoa2.nome} idade: ${pessoa2.idade}');
 
+ //Operador em cascata permite emitir varias chamadas por meio de um objeto
+  var pessoa3 = Pessoa();
+  pessoa3
+    ..nome = 'Katia'
+    ..idade = 13
+    ..info();
+
   //Dados inserido pelo usuario
   Usuario usuario = Usuario();
   usuario.usuario = 'hino@user.com';
@@ -35,10 +40,5 @@ void main() {
   conta.calcularSalario(4000, 130, 2);
   conta.depositar(200);
   conta.sacar(2000);
+
 }
-
-
-
-
-
-
