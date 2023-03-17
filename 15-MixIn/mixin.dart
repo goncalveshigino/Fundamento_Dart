@@ -1,4 +1,4 @@
- /**
+/**
   * Conceito
   -Mixin permite implementar metodos e atributos de outras classes
 
@@ -13,7 +13,6 @@
   -E obrigatorio declarar sua classe como mixin.
   -Restring o uso de mixin as classes que estendem ou implementam a class declarada.
   */
-
 
 abstract class Cidadao {
   String? nome;
@@ -41,9 +40,28 @@ class Postagem {
   }
 }
 
+//MixIn
 
+mixin Elegivel on Cidadao {
+  bool elegivel = false;
 
-class Candidato extends Cidadao implements Postagem, Presidenciavel {
+  void prestacaoContas();
+}
+
+abstract class Conta {
+  
+  double? _saldo;
+  double salario = 5000;
+
+  get saldo => this._saldo;
+  set depositar(double valor) => this._saldo = valor;
+
+  bool declaracaoRenda() => _saldo! / 12 < salario;
+}
+
+class Candidato extends Cidadao
+    with Elegivel, Conta
+    implements Postagem, Presidenciavel {
   String? objetivos;
 
   Candidato(String nome, {this.ideologia, this.partido}) : super(nome) {
@@ -74,17 +92,31 @@ class Candidato extends Cidadao implements Postagem, Presidenciavel {
     print(
         '$nome e candidato com ideologia de $ideologia pelo partido $partido');
   }
-}
 
+  @override
+  void prestacaoContas() {
+    elegivel = super.declaracaoRenda();
+    if (elegivel) {
+      print(
+          'Candidato $nome passou na prestacao de contas!\nAutorizado a concorrer nas eleicoes 2027');
+    } else {
+      print(
+          'Candidato $nome foi barrado na prestacao de contas $saldo excode a renda declarada para Presidente');
+    }
+  }
+}
 
 void main() {
   print('15.0) Mixin');
 
   var bolsonaro = Candidato('Bolsonaro', ideologia: 'Direita', partido: 'PSL');
+
   bolsonaro
     ..objetivos = 'Ganhar eleicao'
     ..objectivodPessoais()
     ..postagem = 'Vou acabar com a corrupcao no brazil'
     ..escreverPostagem()
-    ..idiologiaPolitica();
+    ..idiologiaPolitica()
+    ..depositar = 77000
+    ..prestacaoContas();
 }
