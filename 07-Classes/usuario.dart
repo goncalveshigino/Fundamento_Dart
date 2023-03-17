@@ -1,4 +1,5 @@
 class Usuario {
+  
   String? usuario;
   String? senha;
 
