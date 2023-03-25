@@ -9,6 +9,7 @@ import 'dart:math';
  */
 
 listForEach() {
+  print('16.1.0) List ForEach');
   var array = [0, 2.4, 5, 7.5];
   array.forEach((element) {
     print('ForEach: $element');
@@ -57,8 +58,25 @@ listForEach() {
   listaPrecos.forEach((e) => print('ForEach: $e'));
 }
 
-void main() {
-  print('16.1.0) List ForEach');
+//*Expand
+//  - Cria uma nova lista expandindo ou concatenando os elementos
 
-  listForEach();
+listExand() {
+  print('\n16.1.1) List Expand\n');
+
+  var lista = [
+    [1, 2],
+    [3, 4]
+  ];
+
+  List<dynamic> listaFlet = lista.expand((e) => e).toList();
+  List<dynamic> listaDuplicada = listaFlet.expand((e) => [e, e]).toList();
+  print('ListaFlet: $listaFlet \nListaDuplicada $listaDuplicada');
+
+
+}
+
+void main() {
+  // listForEach();
+  listExand();
 }
