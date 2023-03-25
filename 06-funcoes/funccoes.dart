@@ -1,5 +1,4 @@
 void semRetorno() {
-
   print('06.0) Funcoes sem retorno\n');
 
   void conceito() {
@@ -53,6 +52,12 @@ comRetorno() {
     return 'Soma: $valorA + $valorB = $resultado';
   }
 
+  String lucro(double valorDeCompra, int quantidade, double precoUnitario,) {
+    var resultado =  valorDeCompra - quantidade * precoUnitario;
+
+    return 'O Lucro do produto e $resultado';
+  }
+
   String verficarMaioridade(String nome, int idade) {
     var resposta;
     if (idade >= 18) {
@@ -82,6 +87,7 @@ comRetorno() {
 
   print(conceito());
   print(somarValores(2, 8));
+  print(lucro(3500, 100, 10));
   print(verficarMaioridade('Higino', 25));
   print(contagemRegressiva(3));
   print(converterkparaMilha([1, 2, 3, 4, 6, 20, 10, 67, 80, 90]));
@@ -91,4 +97,3 @@ void main() {
   semRetorno();
   comRetorno();
 }
- 
