@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:math';
 
 /**
@@ -72,11 +73,66 @@ listExand() {
   List<dynamic> listaFlet = lista.expand((e) => e).toList();
   List<dynamic> listaDuplicada = listaFlet.expand((e) => [e, e]).toList();
   print('ListaFlet: $listaFlet \nListaDuplicada $listaDuplicada');
-
-
 }
 
+listMap() {
+  print('16.1.2) List Map\n');
+
+  List<String> frutas = ['Mangas', 'Bananas', 'Morango', 'Pera'];
+  List<String> frutasMapeadas = frutas.map((e) => '$e e uma fruta!').toList();
+  print(frutasMapeadas);
+
+  List<int> inteiros = [1, 5, 10];
+  var incrementar = (int e) => ++e;
+  final dobro = (int e) => e * 2;
+  List<int> inteiroMapeados = inteiros.map(incrementar).map(dobro).toList();
+  print(inteiroMapeados);
+
+  List<double> doubles = [2.75, 5.5, 7.25];
+  final triplo = (e) => e * 3;
+  final Function moeda =
+      (e) => 'RS ${e.toDouble().toStringFixed(2).replaceFirst('.', ',')}';
+  Function porcentagem(desconto) => (valor) => desconto * valor;
+  //List<dynamic> doublesMapeados = doubles.map(triplo).map(porcentagem(0.9) as dynamic).map(moeda).toList();
+
+  // print(doublesMapeados);
+}
+
+//* Every
+//    -Faz o teste em todos elementos com o operador logico '&&' retornando (true or false)
+
+listEvery() {
+  print('\n16.1.3) List Every\n');
+
+  List<int> inteiros = [0, 1, 2, 3, 4, 5];
+  bool resultado = inteiros.every((e) => e > 0);
+  print(resultado);
+
+  List<String> textos = List.from(['Higino', 'Luiz']);
+  resultado = textos.every((e) => e.contains('i'));
+  print(resultado);
+}
+
+// * Where
+//     -Filtra os elementos da colecao criando uma nova do mesmo tamanho ou nemor
+
+listWhere() {
+  print('\n16.1.4) List Where');
+
+  List<int> idades = [1, 16, 26, 46, 59, 56];
+  print(idades.where((e) => e is int)); // Retorno em Itareble
+  print(idades.whereType<int>());
+
+  List<int> adultos = idades.where((e) => e > 16).toList();
+  var crianca = idades.singleWhere((e) => e <= 16, orElse: () => 0);
+  int menor = idades.lastWhere((e) => e.toString().startsWith('0'), orElse: () => null);
+  print('Adulto : $adultos Crianca: $crianca');
+} 
+
 void main() {
-  // listForEach();
-  listExand();
+  //listForEach();
+  //listExand();
+  listMap();
+  listEvery();
+  listWhere();
 }
