@@ -4,6 +4,7 @@
 ///
 
 funcaoClosures() {
+  
   print('\n06.5.1) Closures sem retorno\n');
 
   var saudacao = (String nome) {

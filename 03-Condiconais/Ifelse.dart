@@ -32,7 +32,7 @@ void main() {
   var numeroDouble = double.parse(textoDouble).toStringAsFixed(2);
 
   print('ParseInt: $numeroInt ParseDouble: $numeroDouble');
-  print('ParseString: ${numeroDouble.toString() is String}');
+  print('ParseString: ${numeroDouble.toString()}');
 
   double peso = 100;
   double altura = 1.65;
@@ -48,9 +48,9 @@ void main() {
     print('IMC $imc SobrePeso');
   } else if (imc >= 30 && imc < 35) {
     print('IMC $imc Obesidade grau 1');
-  } else if( imc >= 35 && imc < 40 ){
+  } else if (imc >= 35 && imc < 40) {
     print('IMC $imc Obesidade grau 2');
   } else {
-       print('IMC $imc Obesidade grau 3');
+    print('IMC $imc Obesidade grau 3');
   }
 }

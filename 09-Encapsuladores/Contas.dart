@@ -1,6 +1,7 @@
 import 'dart:math';
 
 class Conta {
+
   bool alterarLimite = false;
 
   int? _numeroConta;
@@ -29,15 +30,15 @@ class Conta {
 
   get saldo => this._saldo;
 
-// Set padrao
-  set limite(double limite) {
-    if (alterarLimite) {
-      this._limite = limite;
-      print('Limite alterado para o valor: $_limite');
-    } else {
-      print('Permissao negada! Alteracao: Limite do titular');
+  // Set padrao
+    set limite(double limite) {
+      if (alterarLimite) {
+        this._limite = limite;
+        print('Limite alterado para o valor: $_limite');
+      } else {
+        print('Permissao negada! Alteracao: Limite do titular');
+      }
     }
-  }
 
   //getter e setter costumizaveis
   String get informacao => 'Titular: ${_nome} NºConta: ${_numeroConta} Saldo atualizado: ${_saldo}';
@@ -62,3 +63,6 @@ class Conta {
     }
   }
 }
+
+
+

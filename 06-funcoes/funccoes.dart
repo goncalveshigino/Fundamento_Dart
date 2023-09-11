@@ -5,7 +5,7 @@ void semRetorno() {
     print('Funcao void sem retorno');
   }
 
-  void somarValores(int valorA, int valorB) {
+  void somarValores(String valorA, String valorB) {
     var resultado = valorA + valorB;
     print('Soma: $valorA + $valorB = $resultado');
   }
@@ -35,7 +35,7 @@ void semRetorno() {
   }
 
   conceito();
-  somarValores(5, 6);
+  somarValores("5", "6");
   verficarMaioridade('Higino', 25);
   converterkparaMilha([1, 2, 3, 4, 6, 20, 10, 67, 80, 90]);
 }
@@ -52,8 +52,12 @@ comRetorno() {
     return 'Soma: $valorA + $valorB = $resultado';
   }
 
-  String lucro(double valorDeCompra, int quantidade, double precoUnitario,) {
-    var resultado =  valorDeCompra - quantidade * precoUnitario;
+  String lucro(
+    double valorDeCompra,
+    int quantidade,
+    double precoUnitario,
+  ) {
+    var resultado = valorDeCompra - quantidade * precoUnitario;
 
     return 'O Lucro do produto e $resultado';
   }
@@ -85,12 +89,21 @@ comRetorno() {
     return '\nArray convertido e arredondado!\n';
   }
 
+  descubrirQuantidadeDeLaranjas(int litros) {
+    int umLitro = 20;
+    int result = umLitro * litros;
+
+    return result;
+  }
+
   print(conceito());
   print(somarValores(2, 8));
   print(lucro(3500, 100, 10));
   print(verficarMaioridade('Higino', 25));
   print(contagemRegressiva(3));
   print(converterkparaMilha([1, 2, 3, 4, 6, 20, 10, 67, 80, 90]));
+
+  print(descubrirQuantidadeDeLaranjas(3550));
 }
 
 void main() {

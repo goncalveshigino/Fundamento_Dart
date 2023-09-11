@@ -38,7 +38,7 @@ void main() {
   print(arrayDinamicos);
 
   arrayDinamicos.clear();
-  print('$arrayDinamicos == null: ${arrayDinamicos == null}');
+  print('$arrayDinamicos == null: ${arrayDinamicos}');
   print('$arrayDinamicos == empty: ${arrayDinamicos.isEmpty}');
 
   arrayDinamicos.length = 1;

@@ -1,4 +1,5 @@
 abstract class Animal {
+  
   String? idade;
   late bool docil;
   late bool coluna;

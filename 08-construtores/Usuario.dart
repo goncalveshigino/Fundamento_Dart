@@ -1,5 +1,6 @@
 
 class Usuario {
+  
   String? user, senha, nome, cargo;
   int? idade;
 

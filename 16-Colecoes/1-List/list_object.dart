@@ -63,6 +63,7 @@ class Multa {
 }
 
 main() {
+
   print('16.1.7) List manipulando Objetos\n');
 
   Pessoa p1 = Pessoa('Higino', 'Luiz', identidade: 12345678);
@@ -72,41 +73,34 @@ main() {
   pessoas.add(Pessoa('Gonza', 'Luiz'));
 
   for (var i = 0; i < pessoas.length; i++) {
-    print(
-        'For: ${pessoas[i].nome} ${pessoas[i].sobrenome} id: ${pessoas[i]._identidade}');
+    print('For: ${pessoas[i].nome} ${pessoas[i].sobrenome} id: ${pessoas[i]._identidade}');
   }
 
-  print('');
+  print('********************************************');
 
   for (var pessoa in pessoas) {
-    print(
-        'For in: ${pessoa.identidade} ${pessoa.sobrenome} id: ${pessoa.identidade}');
+    print('For in: ${pessoa.identidade} ${pessoa.sobrenome} id: ${pessoa.identidade}');
   }
 
-  print('');
+  print('******************************************');
   pessoas.forEach(
       (p) => print('ForEach: ${p.nome} ${p.sobrenome} id: ${p.identidade}'));
 
   print('\n16.1.8) List ordenando Objetos');
 
   List<Vendedor> vendedores = [];
-  vendedores.add(
-      Vendedor('Luiz', [Venda('IphoneX', 40.99), Venda('Sansung S19', 40.99)]));
-  vendedores.add(Vendedor(
-      'Higino', [Venda('Iphone', 40.99), Venda('Sansung S19', 40.99)]));
-  vendedores.add(
-      Vendedor('Katiavala', [Venda('Manga', 10.00), Venda('Arroz', 40.90)]));
+
+  vendedores.add(Vendedor('Luiz', [Venda('IphoneX', 40.99), Venda('Sansung S19', 40.99)]));
+  vendedores.add(Vendedor('Higino', [Venda('Iphone', 40.99), Venda('Sansung S19', 40.99)]));
+  vendedores.add(Vendedor('Katiavala', [Venda('Manga', 10.00), Venda('Arroz', 40.90)]));
 
   //Organizar Lista de vendas pela soma total
-  vendedores.sort((b, a) => (a.vendas
-      .fold(0.0, (anterior, atual) => anterior + atual.preco)
-      .compareTo(
-          b.vendas.fold(0.0, (anterior, atual) => anterior + atual.preco))));
+  vendedores.sort((b, a) => (a.vendas.fold(0.0, (anterior, atual) => anterior + atual.preco)
+      .compareTo( b.vendas.fold(0.0, (anterior, atual) => anterior + atual.preco))));
   // Organizar as vendas de cada vendedor
-  vendedores
-      .forEach((e) => e.vendas.sort((b, a) => a.preco.compareTo(b.preco)));
-  vendedores.forEach((e) => print(
-      'Vendedor #${e.nome} \t ${e.vendas.length} vendas \t totalizando ${e.vendas.fold(0.0, (anterior, atual) => anterior + atual.preco)} reais \t vendas: ${e.vendas.map((e) => e.preco).toList()}'));
+  vendedores.forEach((e) => e.vendas.sort((b, a) => a.preco.compareTo(b.preco)));
+
+  vendedores.forEach((e) => print( 'Vendedor #${e.nome} \t ${e.vendas.length} vendas \t totalizando ${e.vendas.fold(0.0, (anterior, atual) => anterior + atual.preco)} reais \t vendas: ${e.vendas.map((e) => e.preco).toList()}'));
 
   print('\n16.1.9) List escopo de loops em Objetos\n');
 
