@@ -18,6 +18,9 @@ void novaTarefa({int tempo = 1}) {
       () => print('\nStatus: Segunda Tarefa finalizada!\n'));
 }
 
+excecao({int tempo = 1}) => Future.delayed(
+    Duration(seconds: tempo), () => throw Exception('Erro intencional'));
+
 void contagem({int segundos = 3}) {
   print('Carregando...\n');
 
@@ -35,6 +38,8 @@ main() {
   print(tarefa(tempo: 4));
 
   novaTarefa(tempo: 4);
+
+  excecao(tempo: 6);
 
   contagem();
 }
